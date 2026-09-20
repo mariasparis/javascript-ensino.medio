@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jogo de Adivinhação</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Jogo de Adivinhação</h1>
+
+    <p>O computador sorteou um número entre 1 e 100. Tente adivinhar!</p>
+
+    <input type="number" id="guess" min="1" max="5">
+
+    <button onclick="checkGuess()">Adivinhar</button>
+
+    <div id="result"></div>
+
+    <script>
+        function checkGuess() {
+            var computerNumber = Math.floor(Math.random() * 100) + 1;
+            var playerGuess = parseInt(document.getElementById('guess').value);
+            var resultElement = document.getElementById('result');
+
+            if (playerGuess === computerNumber) {
+                resultElement.textContent =
+                    "Parabéns! Você acertou o número " + computerNumber + "!";
+            } else {
+                resultElement.textContent =
+                    "Que pena! O número correto era " + computerNumber + ".";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
