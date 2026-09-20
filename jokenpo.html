@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoKenPo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>JoKenPo</h1>
+
+        <button onclick="play('pedra')">Pedra</button>
+        <button onclick="play('papel')">Papel</button>
+        <button onclick="play('tesoura')">Tesoura</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function play(playerChoice) {
+
+            var choices = ["pedra", "papel", "tesoura"];
+
+            var computerChoice =
+                choices[Math.floor(Math.random() * choices.length)];
+
+            var resultElement = document.getElementById("result");
+
+            if (playerChoice === computerChoice) {
+                resultElement.textContent = "Empate!";
+            } else if (
+                (playerChoice === "pedra" && computerChoice === "tesoura") ||
+                (playerChoice === "papel" && computerChoice === "pedra") ||
+                (playerChoice === "tesoura" && computerChoice === "papel")
+            ) {
+                resultElement.textContent =
+                    "Você ganhou! O computador escolheu " + computerChoice;
+            } else {
+                resultElement.textContent =
+                    "Você perdeu! O computador escolheu " + computerChoice;
+            }
+        }
+    </script>
+
+</body>
+</html>
