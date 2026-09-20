@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrenos</title>
+
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Calcular Terrenos</h1>
+
+    <input type="number" id="larg" placeholder="Digite a largura do terreno:">
+    <input type="number" id="comp" placeholder="Digite o comprimento do terreno:">
+
+    <button onclick="calc()">Calcular</button>
+
+    <p id="ar">Área:</p>
+    <p id="class">Classificação:</p>
+
+    <script>
+        function calc() {
+            var larg = parseInt(document.getElementById('larg').value);
+            var comp = parseInt(document.getElementById('comp').value);
+
+            var are = larg * comp;
+
+            document.getElementById('ar').innerText =
+                'Área: ' + are + ' m²';
+
+            if (are < 100) {
+                document.getElementById('class').innerText =
+                    'Classificação: Terreno Popular';
+            } else if (are < 500) {
+                document.getElementById('class').innerText =
+                    'Classificação: Terreno Master';
+            } else {
+                document.getElementById('class').innerText =
+                    'Classificação: Terreno VIP';
+            }
+        }
+    </script>
+
+</body>
+</html>
