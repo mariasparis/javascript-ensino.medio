@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média</title> 
+    <script>
+        function calcularMedia () {
+            let nota1 = parseFloat (document.getElementById( 'nota1').value);
+            let nota2 = parseFloat (document.getElementById('nota2').value);
+
+            if (!isNaN(nota1) && !isNaN(nota2)) {
+                let media = (nota1 + nota2) / 2;
+
+                if (media < 5.0) {
+                    document.getElementById('mensagem').innerText  = "REPROVADO";
+                } else if (media >= 5.0 && media < 7.0) {
+                    document.getElementById( 'mensagem').innerText = "RECUPERAÇÃO";
+                } else {
+                    document.getElementById ('mensagem').innerText = "APROVADO" ;
+                }
+            } else {
+            document.getElementById('mensagem').innerText = "Por favor, insira notas válidas.";
+            }        
+        }
+   </script>
+</head>
+<body>
+    <h1>Calculadora de Média</h1>
+    <label for="nota1">Nota 1:</label>
+    <input type="text" id="nota1"><br><br>
+    <label for="nota2">Nota 2:</label>      
+    <input type="text" id="nota2"><br><br>
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="mensagem" ></p>
+</body >
+</html>
